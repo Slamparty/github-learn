@@ -25,6 +25,7 @@ jobs:
           --dockerfile "${DOCKERFILE}"
           --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
           --destination "$PUBLIC_REPO/$IMAGE:latest"
+        
         # with:
         #   build_file: "${DOCKERFILE}"
         #   registry: "$PUBLIC_REPO"
