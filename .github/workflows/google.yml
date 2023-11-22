@@ -14,16 +14,17 @@ env:
 jobs:
    build:
     runs-on: self-hosted
-    docker:
-      - image: gcr.io/kaniko-project/executor:debug
+
     steps:
-    - checkout
-    - run:
-        name: Kaniko
-        command: |
-          /kaniko/executor
-              --context "${CONTEXT}"
-              --dockerfile "${DOCKERFILE}"
-              --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
-              --destination "$PUBLIC_REPO/$IMAGE:latest"
+      - name: kaniko  
+        uses: gcr.io/kaniko-project/executor:debug
       
+      - name: build
+        run: |-
+          /kaniko/executor
+          --context "${CONTEXT}"
+          --dockerfile "${DOCKERFILE}"
+          --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
+          --destination "$PUBLIC_REPO/$IMAGE:latest"
+
+          
