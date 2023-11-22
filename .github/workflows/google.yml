@@ -16,9 +16,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Kaniko
-      uses: gcr.io/kaniko-project/executor:v1.17.0-debug
-      script: 
-      - /kaniko/executor
+    - uses: gcr.io/kaniko-project/executor:v1.17.0-debug
+    - run: /kaniko/executor
        --context "${CONTEXT}"
        --dockerfile "${DOCKERFILE}"
        --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
