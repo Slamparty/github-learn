@@ -17,11 +17,15 @@ jobs:
 
     steps:
       #- uses: int128/kaniko-action@v1
-      - uses: gcr.io/kaniko-project/executor:latest
+      - uses: aevea/action-kaniko@master
       - name: build
-        run: |-
-          /kaniko/executor
-          --context "${CONTEXT}"
-          --dockerfile "${DOCKERFILE}"
-          --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
-          --destination "$PUBLIC_REPO/$IMAGE:latest"
+        # run: |-
+        #   /kaniko/executor
+        #   --context "${CONTEXT}"
+        #   --dockerfile "${DOCKERFILE}"
+        #   --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
+        #   --destination "$PUBLIC_REPO/$IMAGE:latest"
+          with:
+            build_file: "${DOCKERFILE}"
+            registry: "$PUBLIC_REPO"
+            image: "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
