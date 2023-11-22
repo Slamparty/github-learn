@@ -16,9 +16,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: kaniko  
-        uses: bitnami/kaniko
-      
+      - uses: int128/kaniko-action@v1   
       - name: build
         run: |-
           /kaniko/executor
@@ -26,5 +24,3 @@ jobs:
           --dockerfile "${DOCKERFILE}"
           --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
           --destination "$PUBLIC_REPO/$IMAGE:latest"
-
-          
