@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: kaniko  
-        uses: gcr.io/kaniko-project/executor:debug
+        uses: bitnami/kaniko
       
       - name: build
         run: |-
