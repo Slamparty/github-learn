@@ -13,14 +13,17 @@ env:
 jobs:
    build:
     runs-on: self-hosted
+    container:
+      image: gcr.io/kaniko-project/executor:debug
 
     steps:
-      - name: gcr.io/kaniko-project/executor:latest
+     - name: kaniko
+       run: |-
+          /kaniko/executor
           --context "${CONTEXT}"
           --dockerfile "${DOCKERFILE}"
           --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
           --destination "$PUBLIC_REPO/$IMAGE:latest"
-
       
       #- uses: int128/kaniko-action@v1
       #- uses: aevea/action-kaniko@master
