@@ -18,11 +18,11 @@ jobs:
      - name: kaniko
        run: |-
           docker run \
-          gcr.io/kaniko-project/executor:latest \
-          --context "${CONTEXT}" \
-          --dockerfile "${DOCKERFILE}" \
-          --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG" \
-          --destination "$PUBLIC_REPO/$IMAGE:latest"
+	           gcr.io/kaniko-project/executor:latest \ \
+            --context "${CONTEXT}" \
+            --dockerfile "${DOCKERFILE}" \
+            --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG" \
+            --destination "$PUBLIC_REPO/$IMAGE:latest"
       
       #- uses: int128/kaniko-action@v1
       #- uses: aevea/action-kaniko@master
