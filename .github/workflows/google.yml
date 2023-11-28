@@ -34,6 +34,7 @@ jobs:
       #    --dockerfile "${DOCKERFILE}"
       #    --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
       #    --destination "$PUBLIC_REPO/$IMAGE:latest"
+      # push-psuh
     
         
         # with:
