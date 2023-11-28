@@ -4,9 +4,9 @@ on:
     branches:
       - main
 env:
-  PUBLIC_REPO: europe-central2-docker.pkg.dev/docker-396214/gitlab-k8s
+  PUBLIC_REPO: us-central1-docker.pkg.dev/useful-art-405022/github-repo
   IMAGE_TAG: ${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA}
-  CONTEXT: "github-learn/gcloud-kubectl-helm/"
+  CONTEXT: "gcloud-kubectl-helm/"
   DOCKERFILE: "Dockerfile"
   IMAGE: "gcloud-kubectl-helm"
 
@@ -18,11 +18,11 @@ jobs:
      - name: kaniko
        run: |-
           docker run \
-	         gcr.io/kaniko-project/executor:latest \
-            --context "${CONTEXT}" \
-            --dockerfile "${DOCKERFILE}" \
-            --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG" \
-            --destination "$PUBLIC_REPO/$IMAGE:latest"
+          gcr.io/kaniko-project/executor:latest \
+          --context "${CONTEXT}" \
+          --dockerfile "${DOCKERFILE}" \
+          --destination "$PUBLIC_REPO/$IMAGE:0.0" \
+          --destination "$PUBLIC_REPO/$IMAGE:latest"
       
       #- uses: int128/kaniko-action@v1
       #- uses: aevea/action-kaniko@master
