@@ -21,7 +21,7 @@ jobs:
           docker run \
           gcr.io/kaniko-project/executor:latest \
           --context "${CONTEXT}" \
-          --dockerfile "${DOCKERFILE}" \
+          --dockerfile https://github.com/Slamparty/github-learn/tree/a0d223e99528e7b92aee0beed3fe8820d8c6f486/gcloud-kubectl-helm/Dockerfile \
           --destination "$PUBLIC_REPO/$IMAGE:0.0" \
           --destination "$PUBLIC_REPO/$IMAGE:latest"
       
