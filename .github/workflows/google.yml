@@ -18,7 +18,7 @@ jobs:
      - name: kaniko
        run: |-
           docker run \
-	           gcr.io/kaniko-project/executor:latest \
+	         gcr.io/kaniko-project/executor:latest \
             --context "${CONTEXT}" \
             --dockerfile "${DOCKERFILE}" \
             --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG" \
