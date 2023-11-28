@@ -15,12 +15,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: kaniko
-        docker run \
-           gcr.io/kaniko-project/executor:latest \
-          --context "${CONTEXT}" \
-          --dockerfile "${DOCKERFILE}" \
-          --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG" \
+      - name: gcr.io/kaniko-project/executor:latest
+          --context "${CONTEXT}"
+          --dockerfile "${DOCKERFILE}"
+          --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
           --destination "$PUBLIC_REPO/$IMAGE:latest"
 
       
