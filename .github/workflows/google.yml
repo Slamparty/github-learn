@@ -20,7 +20,7 @@ jobs:
           echo $(pwd)
           docker run \
           gcr.io/kaniko-project/executor:latest \
-          --context "${CONTEXT}" \
+          --context dir:///gcloud-kubectl-helm/
           --dockerfile "${DOCKERFILE}" \
           --destination "$PUBLIC_REPO/$IMAGE:0.0" \
           --destination "$PUBLIC_REPO/$IMAGE:latest"
