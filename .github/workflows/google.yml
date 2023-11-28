@@ -7,7 +7,7 @@ env:
   PUBLIC_REPO: us-central1-docker.pkg.dev/useful-art-405022/github-repo
   IMAGE_TAG: ${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA}
   CONTEXT: "gcloud-kubectl-helm/"
-  DOCKERFILE: "Dockerfile"
+  DOCKERFILE: "gcloud-kubectl-helm/Dockerfile"
   IMAGE: "gcloud-kubectl-helm"
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
           echo $(pwd)
           docker run \
           gcr.io/kaniko-project/executor:latest \
-          --context "./gcloud-kubectl-helm/" \
+          --context "${CONTEXT}" \
           --dockerfile "${DOCKERFILE}" \
           --destination "$PUBLIC_REPO/$IMAGE:0.0" \
           --destination "$PUBLIC_REPO/$IMAGE:latest"
