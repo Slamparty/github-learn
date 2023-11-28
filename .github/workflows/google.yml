@@ -2,7 +2,8 @@
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 env:
   PUBLIC_REPO: europe-central2-docker.pkg.dev/docker-396214/gitlab-k8s
