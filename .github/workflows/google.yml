@@ -1,4 +1,4 @@
-name: Build and Deploy to GKE
+ name: Build and Deploy to GKE
 
 on:
   push:
@@ -17,10 +17,11 @@ jobs:
 
     steps:
       - name: kaniko
-        image: gcr.io/kaniko-project/executor:latest
-          --context "${CONTEXT}"
-          --dockerfile "${DOCKERFILE}"
-          --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
+        docker run \
+           gcr.io/kaniko-project/executor:latest \
+          --context "${CONTEXT}" \
+          --dockerfile "${DOCKERFILE}" \
+          --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG" \
           --destination "$PUBLIC_REPO/$IMAGE:latest"
       
       #- uses: int128/kaniko-action@v1
