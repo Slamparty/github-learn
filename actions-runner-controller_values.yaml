@@ -6,7 +6,6 @@ authSecret:
   name: "pre-defined-secret"
 image:
   repository: "Slamparty/github-learn"
-  actionsRunnerRepositoryAndTag: "Slamparty/github-learn:ubuntu-22.04"
 metrics:
   serviceMonitor:
     enable: true
