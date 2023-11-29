@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  PUBLIC_REPO: us-central1-docker.pkg.dev/useful-art-405022/github-repo
+  REPO: us-east1-docker.pkg.dev/calcium-market-373517/ysys-staging-container-registry
   IMAGE_TAG: ${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA}
   CONTEXT: "gcloud-kubectl-helm/"
   DOCKERFILE: "gcloud-kubectl-helm/Dockerfile"
@@ -22,8 +22,8 @@ jobs:
           gcr.io/kaniko-project/executor:latest \
           --context "${CONTEXT}" \
           --dockerfile https://github.com/Slamparty/github-learn/tree/a0d223e99528e7b92aee0beed3fe8820d8c6f486/gcloud-kubectl-helm/Dockerfile \
-          --destination "$PUBLIC_REPO/$IMAGE:0.0" \
-          --destination "$PUBLIC_REPO/$IMAGE:latest"
+          --destination "$REPO/$IMAGE:0.0" \
+          --destination "$REPO/$IMAGE:latest"
       
       #- uses: int128/kaniko-action@v1
       #- uses: aevea/action-kaniko@master

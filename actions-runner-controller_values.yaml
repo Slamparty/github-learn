@@ -1,0 +1,31 @@
+#https://github.com/actions/actions-runner-controller/blob/master/charts/actions-runner-controller/values.yaml
+
+authSecret:
+  enabled: true
+  create: false
+  name: "pre-defined-secret"
+image:
+  repository: "Slamparty/github-learn"
+  actionsRunnerRepositoryAndTag: "Slamparty/github-learn:ubuntu-22.04"
+metrics:
+  serviceMonitor:
+    enable: true
+actionsMetrics:
+  serviceMonitor:
+    enable: true
+actionsMetricsServer:
+  enabled: true
+#logFormat: text
+
+
+rbac:
+  allowGrantingKubernetesContainerModePermissions: true
+
+containerMode:
+  type: "kubernetes"
+  kubernetesModeWorkVolumeClaim:
+    accessModes: ["ReadWriteOnce"]
+    storageClassName: "dynamic-blob-storage"
+    resources:
+      requests:
+        storage: 1Gi
