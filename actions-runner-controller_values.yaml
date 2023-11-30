@@ -3,9 +3,10 @@
 authSecret:
   enabled: true
   create: false
-  name: "pre-defined-secret"
+  name: "controller-manager"
 image:
-  repository: "Slamparty/github-learn"
+  repository: "summerwind/actions-runner-controller"
+  actionsRunnerRepositoryAndTag: "summerwind/actions-runner:ubuntu-22.04"
 metrics:
   serviceMonitor:
     enable: true
