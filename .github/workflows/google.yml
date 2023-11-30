@@ -22,5 +22,5 @@ jobs:
           gcr.io/kaniko-project/executor:latest \
           --context "${CONTEXT}" \
           --dockerfile https://github.com/Slamparty/github-learn/tree/a0d223e99528e7b92aee0beed3fe8820d8c6f486/gcloud-kubectl-helm/Dockerfile \
-          --destination "us-east1-docker.pkg.dev/calcium-market-373517/ysys-staging-container-registry" \
+          --destination "$REPO/$IMAGE" \
           --destination "$REPO/$IMAGE:latest"

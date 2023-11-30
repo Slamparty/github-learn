@@ -1,0 +1,5 @@
+kubectl create secret generic ${secret} \
+   --namespace=actions-runner-system \
+   --from-literal=github_app_id=${github_app_id} \
+   --from-literal=github_app_installation_id=${github_app_installation_id} \
+   --from-literal=github_app_private_key=${github_app_private_key} 
