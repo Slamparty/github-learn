@@ -7,7 +7,7 @@ spec:
   replicas: 1
   template:
     spec:
-      repository: Slamparty/github-runner
+      repository: Slamparty/github-learn
       serviceAccountName: default
       labels:
         - build
