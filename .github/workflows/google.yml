@@ -12,7 +12,7 @@ env:
 
 jobs:
    build:
-    runs-on: self-hosted
+    runs-on: ysys
 
     steps:
      - name: kaniko
@@ -24,20 +24,3 @@ jobs:
           --dockerfile https://github.com/Slamparty/github-learn/tree/a0d223e99528e7b92aee0beed3fe8820d8c6f486/gcloud-kubectl-helm/Dockerfile \
           --destination "$REPO/$IMAGE:0.0" \
           --destination "$REPO/$IMAGE:latest"
-      
-      #- uses: int128/kaniko-action@v1
-      #- uses: aevea/action-kaniko@master
-      #- name: build
-      #  run: |-
-      #    /kaniko/executor
-      #    --context "${CONTEXT}"
-      #    --dockerfile "${DOCKERFILE}"
-      #    --destination "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
-      #    --destination "$PUBLIC_REPO/$IMAGE:latest"
-      # push-psuh
-    
-        
-        # with:
-        #   build_file: "${DOCKERFILE}"
-        #   registry: "$PUBLIC_REPO"
-        #   image: "$PUBLIC_REPO/$IMAGE:$IMAGE_TAG"
